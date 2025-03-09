@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:reslovedx/tab_page/view/view.dart';
+import 'package:reslovedx/ticket_page/view/view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           // brightness: Brightness.dark,
         ),
       ),
-      home: TabPage(),
+      home: TicketView(),
     );
   }
 }

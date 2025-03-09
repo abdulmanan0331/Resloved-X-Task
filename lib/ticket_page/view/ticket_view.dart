@@ -10,9 +10,19 @@ class TicketView extends StatelessWidget {
 
       appBar: AppBar(
         backgroundColor: Color(0xff030303),
-
+        leading: IconButton(
+          onPressed: () => _pressedBack(context),
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+        ),
         centerTitle: true,
-        title: Text('Tickets', style: TextStyle(color: Colors.white)),
+        title: Text(
+          'Tickets',
+          style: GoogleFonts.inter(
+            color: Colors.white,
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
         actions: [_buildIconButton(Icons.add)],
       ),
       body: SingleChildScrollView(
@@ -33,6 +43,10 @@ class TicketView extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  _pressedBack(BuildContext context) {
+    Navigator.of(context).pop();
   }
 }
 
@@ -92,7 +106,7 @@ Widget _buildIconButton(IconData icon) {
   return Container(
     width: 40,
     height: 40,
-    decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.black54),
+    decoration: BoxDecoration(shape: BoxShape.circle, color: Color(0xff151515)),
     child: Icon(icon, color: Colors.white, size: 20),
   );
 }
@@ -136,9 +150,9 @@ class TicketCard extends StatelessWidget {
               SizedBox(width: 5),
               Text(
                 ticketModel.id,
-                style: TextStyle(
+                style: GoogleFonts.inter(
                   color: Colors.white,
-                  fontSize: 18,
+                  fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -155,22 +169,27 @@ class TicketCard extends StatelessWidget {
           SizedBox(height: 4),
           Text(
             ticketModel.title,
-            style: TextStyle(
+            style: GoogleFonts.inter(
               color: Colors.white,
-              fontSize: 16,
+              fontSize: 12,
               fontWeight: FontWeight.w600,
             ),
           ),
-          Text(
-            ticketModel.description,
-            style: TextStyle(color: Colors.white60, fontSize: 14),
-          ),
+          // Text(
+          //   ticketModel.description,
+          //   style: GoogleFonts.inter(
+          //     color: Colors.white60,
+          //     fontSize: 10,
+          //     fontWeight: FontWeight.w400,
+          //   ),
+          // ),
           SizedBox(height: 6),
           Text(
             ticketModel.company,
-            style: TextStyle(
-              color: Colors.white60,
-              fontSize: 14,
+            style: GoogleFonts.inter(
+              color: Colors.white,
+              fontSize: 12,
+              fontWeight: FontWeight.w400,
               fontStyle: FontStyle.italic,
             ),
           ),
@@ -180,7 +199,10 @@ class TicketCard extends StatelessWidget {
             children: [
               Text(
                 ticketModel.timeAgo,
-                style: TextStyle(color: Colors.white38, fontSize: 12),
+                style: GoogleFonts.inter(
+                  color: Color(0xff979797),
+                  fontSize: 12,
+                ),
               ),
               Row(children: _buildAvatarSection(ticketModel.assignedTo)),
             ],
@@ -211,7 +233,10 @@ class TicketCard extends StatelessWidget {
     }
     avatars.add(SizedBox(width: 4));
     avatars.add(
-      Text(assignedTo, style: TextStyle(color: Colors.white70, fontSize: 12)),
+      Text(
+        assignedTo,
+        style: GoogleFonts.inter(color: Colors.white70, fontSize: 12),
+      ),
     );
     return avatars;
   }
@@ -286,7 +311,7 @@ Widget _buildBadge(String text, Color color, {Color? textColor}) {
     ),
     child: Text(
       text,
-      style: TextStyle(
+      style: GoogleFonts.inter(
         color: textColor ?? Colors.white,
         fontSize: 12,
         fontWeight: FontWeight.bold,
