@@ -214,7 +214,7 @@ class TicketCard extends StatelessWidget {
 
   Widget _buildAvatarSection(List<String> assignedTo) {
     return Stack(
-      children: List.generate(assignedTo.length, (index) {
+      children: List.generate(assignedTo.length, (index) {                               
         return Positioned(
           left: index * 18.0, // Overlapping effect
           child: CircleAvatar(
